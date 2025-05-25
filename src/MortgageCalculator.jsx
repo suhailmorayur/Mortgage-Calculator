@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import Result from "./Result";
 
 function App() {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, formState: { errors }, reset } = useForm();
   const [result, setResult] = useState(null);
   const [focusedField, setFocusedField] = useState("");
   const [selectedType, setSelectedType] = useState("repayment");
@@ -41,19 +41,30 @@ function App() {
 
         {/* Form Section */}
         <div className="flex-1 max-w-md m-6">
-          <h1 className="text-2xl font-bold mb-6 text-center md:text-left">Mortgage Calculator</h1>
+          <div className="flex justify-between items-center">
+            <h1 className="text-2xl font-bold mb-6 text-center md:text-left">Mortgage Calculator</h1>
+            <button
+              type="button"
+              onClick={() => reset()}
+              className=" text-[hsl(200,26%,54%)] hover:text-[hsl(200,24%,40%)] underline"
+            >
+              Clear All
+            </button>
+
+          </div>
+
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
 
             {/* Loan Amount */}
             <div>
-              <label className="block mb-1 font-semibold">Mortgage  Amount</label>
-              <div className={`flex items-center border rounded overflow-hidden ${errors.amount ? 'border-red-500' :
-                  focusedField === 'amount' ? 'border-yellow-400' :
-                    'border-gray-300'}`}>
+              <label className="block mb-1 font-semibold text-[hsl(200,26%,54%)]">Mortgage  Amount</label>
+              <div className={`flex items-center border rounded overflow-hidden hover:bg-[hsl(202,84%,96%)]  ${errors.amount ? 'border-red-500' :
+                focusedField === 'amount' ? 'border-yellow-400' :
+                  'border-gray-300'}`}>
                 <span className={`px-3 py-2 text-black ${errors.amount ? 'bg-red-500 text-white' :
-                    focusedField === 'amount' ? 'bg-yellow-400' :
-                      'bg-[rgb(227,243,253)]'
+                  focusedField === 'amount' ? 'bg-yellow-400' :
+                    'bg-[rgb(227,243,253)]'
                   }`}>₹</span>
                 <input
                   type="number"
@@ -71,10 +82,10 @@ function App() {
 
               {/* Loan Term */}
               <div>
-                <label className="block mb-1 font-semibold">Mortgage Term</label>
-                <div className={`flex items-center border rounded overflow-hidden ${errors.years ? 'border-red-500' :
-                    focusedField === 'years' ? 'border-yellow-400' :
-                      'border-gray-300'
+                <label className="block mb-1 font-semibold text-[hsl(200,26%,54%)]">Mortgage Term</label>
+                <div className={`flex items-center border rounded overflow-hidden hover:bg-[hsl(202,84%,96%)] ${errors.years ? 'border-red-500' :
+                  focusedField === 'years' ? 'border-yellow-400' :
+                    'border-gray-300'
                   }`}>
                   <input
                     type="number"
@@ -85,8 +96,8 @@ function App() {
                     onBlur={() => setFocusedField("")}
                   />
                   <span className={`px-2 py-2 text-black ${errors.years ? 'bg-red-500 text-white' :
-                      focusedField === 'years' ? 'bg-yellow-400' :
-                        'bg-[rgb(227,243,253)]'
+                    focusedField === 'years' ? 'bg-yellow-400' :
+                      'bg-[rgb(227,243,253)]'
                     }`}>
                     years
                   </span>
@@ -99,10 +110,10 @@ function App() {
 
               {/* Interest Rate  */}
               <div>
-                <label className="block mb-1 font-semibold">Interest Rate</label>
-                <div className={`flex items-center border rounded overflow-hidden ${errors.rate ? 'border-red-500' :
-                    focusedField === 'rate' ? 'border-yellow-400' :
-                      'border-gray-300'
+                <label className="block mb-1 font-semibold text-[hsl(200,26%,54%)]">Interest Rate</label>
+                <div className={`flex items-center border rounded overflow-hidden hover:bg-[hsl(202,84%,96%)] ${errors.rate ? 'border-red-500' :
+                  focusedField === 'rate' ? 'border-yellow-400' :
+                    'border-gray-300'
                   }`}>
                   <input
                     type="number"
@@ -114,8 +125,8 @@ function App() {
                     onBlur={() => setFocusedField("")}
                   />
                   <span className={`px-3 py-2 text-black ${errors.rate ? 'bg-red-500 text-white' :
-                      focusedField === 'rate' ? 'bg-yellow-400' :
-                        'bg-[rgb(227,243,253)]'
+                    focusedField === 'rate' ? 'bg-yellow-400' :
+                      'bg-[rgb(227,243,253)]'
                     }`}>
                     %
                   </span>
@@ -161,8 +172,8 @@ function App() {
             </div>
 
             <button
-              type="submit" style={{ backgroundColor: 'hsl(61, 70%, 52%)' }}
-              className=" flex gap-3 text-xl py-2 rounded-3xl px-8 hover:bg-blue-700"
+              type="submit" 
+              className=" flex gap-3 text-xl py-2 rounded-3xl px-8 bg-[hsl(61,70%,52%)] hover:bg-[hsl(61,100%,72%)]"
             >
               <img src="calculate.png" alt="" />
               Calculate Reypeyment
