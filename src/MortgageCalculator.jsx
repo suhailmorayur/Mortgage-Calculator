@@ -51,7 +51,7 @@ function App() {
               <div className={`flex items-center border rounded overflow-hidden ${errors.amount ? 'border-red-500' :
                   focusedField === 'amount' ? 'border-yellow-400' :
                     'border-gray-300'}`}>
-                <span className={`px-3 py-2 text-black ${errors.amount ? 'bg-red-500' :
+                <span className={`px-3 py-2 text-black ${errors.amount ? 'bg-red-500 text-white' :
                     focusedField === 'amount' ? 'bg-yellow-400' :
                       'bg-[rgb(227,243,253)]'
                   }`}>₹</span>
@@ -84,7 +84,7 @@ function App() {
                     onFocus={() => setFocusedField("years")}
                     onBlur={() => setFocusedField("")}
                   />
-                  <span className={`px-2 py-2 text-black ${errors.years ? 'bg-red-500' :
+                  <span className={`px-2 py-2 text-black ${errors.years ? 'bg-red-500 text-white' :
                       focusedField === 'years' ? 'bg-yellow-400' :
                         'bg-[rgb(227,243,253)]'
                     }`}>
@@ -113,7 +113,7 @@ function App() {
                     onFocus={() => setFocusedField("rate")}
                     onBlur={() => setFocusedField("")}
                   />
-                  <span className={`px-3 py-2 text-black ${errors.rate ? 'bg-red-500' :
+                  <span className={`px-3 py-2 text-black ${errors.rate ? 'bg-red-500 text-white' :
                       focusedField === 'rate' ? 'bg-yellow-400' :
                         'bg-[rgb(227,243,253)]'
                     }`}>
